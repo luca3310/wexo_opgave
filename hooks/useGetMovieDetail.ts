@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
 import getMovieById from "@/api/getMovieById";
-
-interface Movie {
-  title: string;
-  description: string;
-  movieUrl: string | null;
-  imageTitle: string | null;
-  id: string;
-}
+import { Movie } from "@/types";
 
 type useGetMovieDetailReturn = [Movie | undefined, boolean];
 

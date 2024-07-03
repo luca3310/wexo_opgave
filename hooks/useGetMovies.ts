@@ -1,13 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-interface Movie {
-  title: string;
-  movieUrl: string | null;
-  imageTitle: string | null;
-  id: string;
-}
+import { Movie } from "@/types";
 import getMovies from "@/api/getMovies";
 
 type useGetMoviesReturn = [Movie[], boolean, boolean, () => void];

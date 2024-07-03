@@ -9,10 +9,6 @@ export default function useWishList({
 }): UseWishlistReturn {
   const [isWishlisted, setIsWishlisted] = useState<boolean>(false);
 
-  function logStorage() {
-    console.log(localStorage.getItem("wishlist"));
-  }
-
   function addToWishlist(id: string) {
     const oldLocalStorage = localStorage.getItem("wishlist");
     let wishlist = [];
@@ -26,8 +22,6 @@ export default function useWishList({
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
       setIsWishlisted(true);
     }
-
-    logStorage();
   }
 
   function removeFromWishlist(id: string) {
@@ -41,8 +35,6 @@ export default function useWishList({
     wishlist = wishlist.filter((item: string) => item !== id);
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
     setIsWishlisted(false);
-
-    logStorage();
   }
 
   useEffect(() => {
