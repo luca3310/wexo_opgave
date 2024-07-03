@@ -7,6 +7,9 @@ export default async function getMovies(
   const response = await fetch(
     `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&sort=year&range=${range}&${genre && "byTags=genre:" + genre}&byProgramType=${type}&lang=da`,
   );
+  console.log(
+    `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&sort=year&range=${range}&${genre && "byTags=genre:" + genre}&byProgramType=${type}&lang=da`,
+  );
   const data = await response.json();
 
   const filteredData = data.entries.map((movie: any) => ({

@@ -5,11 +5,11 @@ export default function Home() {
   return (
     <main>
       <RenderMovies type="movie" />
-      <RenderMovies type="serie" />
+      <RenderMovies type="series" />
       <RenderMovies genre="action" type="movie" />
-      <RenderMovies genre="comedy" type="serie" />
+      <RenderMovies genre="comedy" type="series" />
       <RenderMovies genre="thriller" type="movie" />
-      <RenderMovies genre="drama" type="serie" />
+      <RenderMovies genre="drama" type="series" />
     </main>
   );
 }

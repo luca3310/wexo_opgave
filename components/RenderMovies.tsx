@@ -17,9 +17,9 @@ export default function RenderMovies({ genre, type }: RenderMoviesProps) {
   return (
     <>
       <h1 className="p-3 px-7 text-3xl font-bold">
-        {genre} {type}s
+        {genre} {type}
       </h1>
-      <ul className="flex gap-2 overflow-x-scroll w-[80%] p-7">
+      <ul className="flex gap-2 overflow-x-scroll w-full p-7">
         {!isLoadingMovies ? (
           movies.map((movie: any) => (
             <li key={movie.id}>
@@ -44,7 +44,7 @@ export default function RenderMovies({ genre, type }: RenderMoviesProps) {
           ))
         ) : (
           <li>
-            loading {genre} {type}s
+            loading {genre} {type}
           </li>
         )}
         {(!isLoadingMovies && !isLoadingMore && (
