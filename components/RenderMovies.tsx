@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import useGetMovies from "@/hooks/useGetMovies";
+import Link from "next/link";
 
 interface RenderMoviesProps {
   genre?: string;
@@ -23,23 +24,25 @@ export default function RenderMovies({ genre, type }: RenderMoviesProps) {
         {!isLoadingMovies ? (
           movies.map((movie: any) => (
             <li key={movie.id}>
-              <Card className="h-[25rem] overflow-y-hidden">
-                <CardContent>
-                  <div className="h-[20rem] aspect-[2/3] p-2">
-                    <img
-                      className="object-cover h-full w-full"
-                      src={
-                        movie.movieUrl && movie.imageTitle
-                          ? movie.movieUrl
-                          : "https://placehold.co/1080x1920/png"
-                      }
-                    />
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <p>{movie.title}</p>
-                </CardFooter>
-              </Card>
+              <Link href={`/${movie.id}`}>
+                <Card className="h-[25rem] overflow-y-hidden">
+                  <CardContent>
+                    <div className="h-[20rem] aspect-[2/3] p-2">
+                      <img
+                        className="object-cover h-full w-full"
+                        src={
+                          movie.movieUrl && movie.imageTitle
+                            ? movie.movieUrl
+                            : "https://placehold.co/1080x1920/png"
+                        }
+                      />
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <p>{movie.title}</p>
+                  </CardFooter>
+                </Card>
+              </Link>
             </li>
           ))
         ) : (
