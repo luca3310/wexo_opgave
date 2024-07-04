@@ -22,20 +22,27 @@ export default function RenderMovies({ genre, type }: RenderMoviesProps) {
       </h1>
       <ul className="flex gap-2 overflow-x-scroll w-full p-7">
         {!isLoadingMovies ? (
-          movies.map((movie: Movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))
+          movies.length === 0 ? (
+            <p>
+              no {genre} {type}
+            </p>
+          ) : (
+            movies.map((movie: Movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))
+          )
         ) : (
           <li>
             loading {genre} {type}
           </li>
         )}
-        {(!isLoadingMovies && !isLoadingMore && (
+        {!isLoadingMovies && !isLoadingMore && movies.length !== 0 ? (
           <button className="h-[25rem] aspect-[2/3]" onClick={loadMore}>
             load more
           </button>
-        )) ||
-          (!isLoadingMovies && <div>Loading more</div>)}
+        ) : (
+          !isLoadingMovies && movies.length !== 0 && <div>Loading more</div>
+        )}
       </ul>
     </>
   );

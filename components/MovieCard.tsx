@@ -11,6 +11,11 @@ export default function MovieCard({ movie }: { movie: Movie }) {
             <div className="h-[20rem] aspect-[2/3] p-2">
               <img
                 className="object-cover h-full w-full"
+                alt={
+                  movie.imageTitle && movie.movieUrl
+                    ? movie.imageTitle
+                    : "no image"
+                }
                 src={
                   movie.movieUrl && movie.imageTitle
                     ? movie.movieUrl

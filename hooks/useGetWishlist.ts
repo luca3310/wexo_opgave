@@ -14,9 +14,7 @@ export default function useGetWishlist(): useGetWishlistReturn {
         const wishList = localStorage.getItem("wishlist");
         if (wishList) {
           const movieIds = JSON.parse(wishList);
-          const moviePromises = movieIds.map((id: string) =>
-            getMovieById("/" + id),
-          );
+          const moviePromises = movieIds.map((id: string) => getMovieById(id));
           const moviesData = await Promise.all(moviePromises);
           setMovies(moviesData);
         }

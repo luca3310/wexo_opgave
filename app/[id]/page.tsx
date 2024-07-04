@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export default function Details() {
   const pathname = usePathname();
-  const [movieDetail, isLoading] = useGetMovieDetail({ id: pathname });
+  const [movieDetail, isLoading] = useGetMovieDetail({ id: pathname.slice(1) });
   const [addToWishlist, removeFromWishlist, isWishlisted] = useWishList({
     pathname: pathname,
   });
@@ -21,6 +21,7 @@ export default function Details() {
           <section className="w-full aspect-[7/1]">
             <img
               className="w-full h-full object-cover"
+              alt={movieDetail.imageTitle ? movieDetail.imageTitle : "no image"}
               src={
                 movieDetail.movieUrl
                   ? movieDetail.movieUrl
